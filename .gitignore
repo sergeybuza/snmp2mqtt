@@ -1,0 +1,19 @@
+# Go
+/bin/
+/dist/
+*.exe
+*.test
+*.out
+coverage.*
+
+# секреты и окружение
+.env*
+/secrets/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+
+# локальные настройки Claude Code (личные, не для команды)
+.claude/settings.local.json
