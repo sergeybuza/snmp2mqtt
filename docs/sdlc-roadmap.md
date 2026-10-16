@@ -60,7 +60,7 @@ snmp2mqtt/
 ├── intent/                    цепочка артефактов, папка на инициативу
 │   ├── README.md              правила хранения и работы с инициативами
 │   ├── _templates/            шаблоны intent.md / spec.md / plan.md
-│   └── YYYY-MM-DD-<slug>/     intent.md → spec.md → plan.md
+│   └── NNNN-YYYY-MM-DD-<slug>/ intent.md → spec.md → plan.md
 ├── docs/
 │   ├── sdlc-roadmap.md        этот файл
 │   └── codex-workflow.md      работа в Codex и соответствие инструментов
@@ -78,8 +78,9 @@ snmp2mqtt/
 ```
 
 Это целевая структура: файлы будущих шагов создаются по мере прохождения процесса.
-Правила хранения — в `intent/README.md`: дата папки фиксируется при создании intent по Москве,
-spec и plan добавляются в ту же папку после принятия предыдущего артефакта. `_templates` не является инициативой.
+Правила хранения — в `intent/README.md`: `NNNN` — сквозной номер с `0001`, дата папки фиксируется
+при создании intent по Москве; spec и plan добавляются в ту же папку после принятия предыдущего артефакта.
+`_templates` не является инициативой.
 
 ## 4. Шаги
 
@@ -92,11 +93,11 @@ spec и plan добавляются в ту же папку после прин�
 При адаптации под Codex инструкции из `CLAUDE.md` сведены в `AGENTS.md`, старый файл удалён,
 пустые заготовки `.claude/` перенесены в `.agents/skills/` и `.codex/`.
 Действующих навыков, hooks и настроек пока нет. Следующий шаг — 01 PLAN.
-2026-10-17 закреплён формат инициатив `intent/YYYY-MM-DD-<slug>/`; шаблоны перенесены в `intent/_templates/`.
+2026-10-17 закреплён формат инициатив `intent/NNNN-YYYY-MM-DD-<slug>/`; шаблоны перенесены в `intent/_templates/`.
 
 ### 01 — PLAN: намерение как intent.md
 
-- **Вход → выход:** идея в голове → `intent/YYYY-MM-DD-<slug>/intent.md`, `status: accepted`.
+- **Вход → выход:** идея в голове → `intent/NNNN-YYYY-MM-DD-<slug>/intent.md`, `status: accepted`.
 - **Гейт:** product owner принимает intent. Отклонение — тоже результат, он фиксируется.
 - **Что делаем:** вы рассказываете идею своими словами; Codex задаёт уточняющие вопросы и раскладывает
   ответы по `intent/_templates/intent.md`. Вы правите текст, меняете статус, коммитите.
@@ -114,7 +115,7 @@ spec и plan добавляются в ту же папку после прин�
 Прочитай AGENTS.md и docs/sdlc-roadmap.md. Мы на шаге 01 PLAN.
 Я расскажу идею проекта своими словами. Задавай уточняющие вопросы (не больше 3 за раз),
 пока не заполнишь все разделы intent/_templates/intent.md. Не придумывай требования за меня:
-чего я не сказал — записывай в «Открытые вопросы». Результат положи в intent/YYYY-MM-DD-<slug>/intent.md
+чего я не сказал — записывай в «Открытые вопросы». Результат положи в intent/NNNN-YYYY-MM-DD-<slug>/intent.md
 со status: draft. Подготовь изменения к PR; принятие intent и слияние подтвержу я.
 ```
 
@@ -157,7 +158,7 @@ spec и plan добавляются в ту же папку после прин�
 
 ```
 Прочитай AGENTS.md и docs/sdlc-roadmap.md. Мы на шаге 02b DESIGN.
-Возьми intent/YYYY-MM-DD-<slug>/intent.md (status: accepted) и skills из .agents/skills/.
+Возьми intent/NNNN-YYYY-MM-DD-<slug>/intent.md (status: accepted) и skills из .agents/skills/.
 За одну сессию напиши spec.md по шаблону intent/_templates/spec.md: требования и дизайн вместе.
 Каждое место, где intent конфликтует с политикой из skills или недоопределён, пометь [ТРЕБУЕТ РЕШЕНИЯ]
 и спроси меня. Не закрывай открытые вопросы intent.md своими предположениями.
@@ -220,9 +221,9 @@ build / test / lint (ненулевой exit при ошибке), расшир�
 
 ```
 Прочитай AGENTS.md и docs/sdlc-roadmap.md. Мы на шаге 03b BUILD.
-Работаем от intent/YYYY-MM-DD-<slug>/spec.md (status: accepted). Проинтервьюируй меня по всему,
+Работаем от intent/NNNN-YYYY-MM-DD-<slug>/spec.md (status: accepted). Проинтервьюируй меня по всему,
 что в spec неоднозначно, затем составь план по intent/_templates/plan.md и сохрани его
-в intent/YYYY-MM-DD-<slug>/plan.md со status: draft. Функциональный код не пиши до моего принятия
+в intent/NNNN-YYYY-MM-DD-<slug>/plan.md со status: draft. Функциональный код не пиши до моего принятия
 плана и коммита plan.md со status: accepted. Подготовь изменения к PR; слияние подтвержу я.
 ```
 
@@ -298,7 +299,7 @@ build / test / lint (ненулевой exit при ошибке), расшир�
   детерминированный скрипт-детектор (среднее / стандартное отклонение, правила Western Electric);
   вызов Codex без человека (`codex exec` по расписанию или webhook с согласованными ограничениями);
   находка → новый
-  `intent/YYYY-MM-DD-<slug>/intent.md` в очередь триажа; отрепетированный rollback; каждый инцидент → eval в `evals/`.
+  `intent/NNNN-YYYY-MM-DD-<slug>/intent.md` в очередь триажа; отрепетированный rollback; каждый инцидент → eval в `evals/`.
   Дополнительные сканы безопасности и дежурного агента из исходного процесса в учебном проходе пропускаем.
 - **Гейт:** человек над циклом. Tiers определяют, что агент может без человека; всё выше — через
   intent → spec → plan → PR.
@@ -359,11 +360,11 @@ build / test / lint (ненулевой exit при ошибке), расшир�
 | Шаг | Статус | Артефакт | Дата |
 |---|---|---|---|
 | 00 | done | структура, AGENTS.md, intent/_templates/, docs/codex-workflow.md | 2026-09-28; адаптация 2026-10-16; формат intent 2026-10-17 |
-| 01 | todo | intent/YYYY-MM-DD-<slug>/intent.md | |
+| 01 | todo | intent/NNNN-YYYY-MM-DD-<slug>/intent.md | |
 | 02a | todo | .agents/skills/*/SKILL.md | |
-| 02b | todo | intent/YYYY-MM-DD-<slug>/spec.md | |
+| 02b | todo | intent/NNNN-YYYY-MM-DD-<slug>/spec.md | |
 | 03a | todo | go.mod, Makefile, AGENTS.md, .codex/config.toml, .codex/hooks.json | |
-| 03b | todo | intent/YYYY-MM-DD-<slug>/plan.md, код | |
+| 03b | todo | intent/NNNN-YYYY-MM-DD-<slug>/plan.md, код | |
 | 04 | todo | verifier, hook защиты тестов, evals/ | |
 | 05 | todo | REVIEW.md, production gate | |
 | 06 | todo | ops/bands.yaml, детектор, инцидент → intent | |

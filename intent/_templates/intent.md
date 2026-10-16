@@ -1,5 +1,5 @@
 ---
-id: "YYYY-MM-DD-<slug>"   # строка, совпадает с именем папки инициативы
+id: "NNNN-YYYY-MM-DD-<slug>"   # строка, совпадает с именем папки инициативы
 title: <короткое название>
 author: <инициатор>
 status: draft            # draft | accepted | rejected
