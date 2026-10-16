@@ -8,7 +8,8 @@
 Изменения оформляются в отдельных ветках через PR; слияние подтверждает человек.
 
 - Карта процесса, шаги и их статус: `docs/sdlc-roadmap.md`
-- Артефакты инициатив (intent → spec → plan): `intent/`
+- Артефакты инициатив (intent → spec → plan): `intent/NNNN-YYYY-MM-DD-<slug>/`; правила — `intent/README.md`
+- Шаблоны артефактов: `intent/_templates/`
 - Основной контекст Codex: `AGENTS.md`
 - Работа в Codex и соответствия прежней среды: `docs/codex-workflow.md`
 - Политики проекта (с шага 02a): `.agents/skills/<name>/SKILL.md`
