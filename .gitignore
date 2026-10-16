@@ -15,5 +15,6 @@ coverage.*
 .idea/
 .vscode/
 
-# локальные настройки Claude Code (личные, не для команды)
-.claude/settings.local.json
+# чужие репозитории для чтения (см. references/README.md)
+references/repos/*
+!references/repos/.gitkeep

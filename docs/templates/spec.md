@@ -1,7 +1,7 @@
 ---
 intent: intent.md          # commit: <sha принятого intent>
 status: draft              # draft | accepted
-skills_applied: []         # какие .claude/skills применялись
+skills_applied: []         # какие .agents/skills/<name>/SKILL.md применялись
 created: YYYY-MM-DD
 accepted:
 ---
