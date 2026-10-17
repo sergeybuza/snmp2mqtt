@@ -360,7 +360,7 @@ build / test / lint (ненулевой exit при ошибке), расшир�
 | Шаг | Статус | Артефакт | Дата |
 |---|---|---|---|
 | 00 | done | структура, AGENTS.md, intent/_templates/, docs/codex-workflow.md | 2026-09-28; адаптация 2026-10-16; формат intent 2026-10-17 |
-| 01 | todo | intent/NNNN-YYYY-MM-DD-<slug>/intent.md | |
+| 01 | draft | intent/0001-2026-10-17-snmp-polling-to-mqtt/intent.md | 2026-10-17 |
 | 02a | todo | .agents/skills/*/SKILL.md | |
 | 02b | todo | intent/NNNN-YYYY-MM-DD-<slug>/spec.md | |
 | 03a | todo | go.mod, Makefile, AGENTS.md, .codex/config.toml, .codex/hooks.json | |
